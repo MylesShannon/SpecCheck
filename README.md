@@ -1,6 +1,6 @@
-# QuickJot  |  "Making it quick"
+# SpecCheck
 
-## This is an AngularJS front-end demonstrting the usage of a cross-origin Laravel back-end JSON API found at [(php|rails).mylesshannon.me](https://github.com/MylesShannon/php.mylesshannon.me)
+## This is an AngularJS front-end working along side a NodeJS & Express API
 
 ### Acquiring required libraries and dependencies for compiling src
 ```sh
