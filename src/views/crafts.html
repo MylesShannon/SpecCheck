@@ -1,0 +1,66 @@
+<div class="row">
+	<div class="col-md-4 col-md-offset-8">
+		Click the "New Craft" button to start!
+	</div>
+	<div class="col-md-12">
+		<div id="new-craft-btn" class="btn btn-md btn-primary pull-right" data-ng-click="crafts.newCraft()">New Craft</div>
+		<h2>Your Crafts</span></h2>
+	</div>
+</div>
+<div class="row user-craft" data-ng-repeat="craft in crafts.crafts track by id">
+	<hr />
+	<div class="col-md-6">
+		<form>
+			<div class="form-group">
+				<label>Craft Name: </label>
+				<input type="text" class="form-control" data-ng-model="craft.craft_name" data-ng-disabled="craft.disabled" />
+
+        <label>ESCs: </label>
+        <input type="text" class="form-control" data-ng-model="craft.electronic_speed_controllers" data-ng-disabled="craft.disabled" />
+
+        <label>Flight Controller: </label>
+        <input type="text" class="form-control" data-ng-model="craft.flight_controller" data-ng-disabled="craft.disabled" />
+
+        <label>FPV Camera: </label>
+        <input type="text" class="form-control" data-ng-model="craft.fpv_camera" data-ng-disabled="craft.disabled" />
+
+        <label>Motors: </label>
+        <input type="text" class="form-control" data-ng-model="craft.motors" data-ng-disabled="craft.disabled" />
+
+				<label>PDB: </label>
+				<input type="text" class="form-control" data-ng-model="craft.power_distribution_board" data-ng-disabled="craft.disabled" />
+
+        <label>Radio Receiver: </label>
+        <input type="text" class="form-control" data-ng-model="craft.receiver" data-ng-disabled="craft.disabled" />
+
+				<label>Radio Transmitter: </label>
+				<input type="text" class="form-control" data-ng-model="craft.transmitter" data-ng-disabled="craft.disabled" />
+
+				<label>Video Transmitter: </label>
+				<input type="text" class="form-control" data-ng-model="craft.video_transmitter" data-ng-disabled="craft.disabled" />
+      </div>
+		</form>
+	</div>
+	<div class="col-md-6">
+    <label>Logs: </label>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Log Name</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody data-ng-repeat="log in craft.logs track by id">
+        <tr>
+          <td>{{log.file_name}}</td>
+          <td>{{log.timestamp}}</td>
+        </tr>
+      </tbody>
+    </table>
+		<div class="craft-btns">
+			<button class="btn btn-md btn-primary pull-left" data-ng-click="crafts.saveCraft(craft, $index)">Save Craft</button>
+      <button class="btn btn-md btn-primary pull-left" data-ng-click="crafts.removeCraft(craft, $index)">Remove Craft</button>
+			<button class="btn btn-md btn-primary pull-right" data-ngf-select="crafts.uploadLog($file)">Upload Log</button>
+		</div>
+	</div>
+</div>

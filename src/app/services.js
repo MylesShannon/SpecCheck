@@ -2,7 +2,7 @@ app.service('apiSource', function(constants) {
   self = this;
 
   self.url = constants.api;
-  
+
   self.set = function(source) {
     self.url = source;
   }
@@ -13,6 +13,7 @@ app.service('apiSource', function(constants) {
 	this.check = function(state) {
 		var deffered = $q.defer();
 		function requireIn(state) {
+      console.log('state: '+state)
 			for(var i = 0; i < constants.states.requireIn.length; i++) {
 				if(constants.states.requireIn[0] === state) {
 					return true;
@@ -80,7 +81,7 @@ app.service('apiSource', function(constants) {
 	self.getUserData = function() {
 		var deffered = $q.defer();
 		$http({url: $rootScope.session.api+'/user', method: 'GET'}).then(function(resp) {
-			deffered.resolve(resp);
+			deffered.resolve(resp.data);
 		}).catch(function() {
       		self.logout();
       		deffered.reject();

@@ -38,26 +38,46 @@ app.config(function($provide, $routeProvider, $locationProvider, $httpProvider, 
 			}
 		}
 	})
-	.when('/user', {
-		templateUrl: 'views/user.html',
-		controller: 'UserCtrl',
-		controllerAs: 'user',
+	.when('/crafts', {
+		templateUrl: 'views/crafts.html',
+		controller: 'CraftsCtrl',
+		controllerAs: 'crafts',
 		resolve: {
 			check: function(auth) {
-				return auth.check('user').catch(function(){});
+				return auth.check('crafts').catch(function(){});
 			}
 		}
 	})
-	.when('/log', {
-		templateUrl: 'views/log.html',
-		controller: 'LogCtrl',
-		controllerAs: 'log',
-		resolve: {
-			check: function(auth) {
-				return auth.check('log').catch(function(){});
-			}
-		}
-	});
+	.when('/craft/:craftId', {
+    templateUrl: 'views/craft.html',
+    controller: 'CraftCtrl',
+    controllerAs: 'craft',
+    resolve: {
+      check: function(auth) {
+        return auth.check('craft').catch(function(){});
+      }
+    }
+  })
+  .when('/log/:logId', {
+    templateUrl: 'views/log.html',
+    controller: 'LogCtrl',
+    controllerAs: 'log',
+    resolve: {
+      check: function(auth) {
+        return auth.check('log').catch(function(){});
+      }
+    }
+  })
+  .when('/user/:userId', {
+    templateUrl: 'views/user.html',
+    controller: 'UserCtrl',
+    controllerAs: 'user',
+    resolve: {
+      check: function(auth) {
+        return auth.check('user').catch(function(){});
+      }
+    }
+  });
 
 	angular.extend(toastrConfig, {
 		positionClass: 'toast-top-center',

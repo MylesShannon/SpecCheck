@@ -1,1 +1,1 @@
-var app = angular.module('blackboxApp', ['ngRoute', 'satellizer', 'ngAnimate', 'toastr', 'ngCookies']);
+var app = angular.module('blackboxApp', ['ngRoute', 'satellizer', 'ngAnimate', 'toastr', 'ngCookies', 'ngFileUpload']);

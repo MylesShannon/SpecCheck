@@ -37,7 +37,7 @@
 				</div>
 				<div data-ng-if="!session.transitioning" id="navbar" class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li data-ng-if="session.loggedIn" data-ng-class="{active: nav.active==='user'}"><a href="/user">My Logs</li></li>
+						<li data-ng-if="session.loggedIn" data-ng-class="{active: nav.active==='crafts'}"><a href="/crafts">My Crafts</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li data-ng-if="!session.loggedIn" data-ng-class="{active: nav.active==='login'}"><a id="signin-button" data-ng-click="nav.login('google')"><img ng-src="{{session.host + '/assets/signin_button.png'}}" /></a></li>
@@ -67,6 +67,8 @@
 		<script type="text/javascript" src="libs/satellizer/js/satellizer.min.js"></script>
 		<script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="libs/angular-toastr/js/angular-toastr.tpls.min.js"></script>
+		<script type="text/javascript" src="libs/d3/js/d3.min.js"></script>
+		<script type="text/javascript" src="libs/ng-file-upload/js/ng-file-upload.min.js"></script>
 		<script type="text/javascript" src="app.min.js"></script>
 	</body>
 </html>
